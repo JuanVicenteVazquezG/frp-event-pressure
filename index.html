@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+        content="ie=edge">
+  <title>FRP: Event Pressure</title>
+
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <script type="module"
+            src="./node_modules/zero-md/dist/zero-md.min.js"></script>
+
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+        margin: 20px;
+        font-size: 18px;
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+        margin-left: 20px;
+      }
+
+      .main-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .flex {
+        margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+      }
+
+      input {
+        height: 32px;
+        border-radius: 4px;
+        padding: 5px;
+        border-style: solid;
+        background-color: transparent;
+        width: 100%;
+      }
+
+      label {
+        width: 260px;
+        min-width: 260px;
+        line-height: 20px;
+      }
+
+      input, label, .output, code {
+        font-size: 18px;
+      }
+
+      button {
+        min-width: 200px;
+      }
+
+      .output {
+        height: 250px;
+        max-height: 250px;
+        overflow-y: auto;
+        scroll-margin-right: 30px;
+        width: 100%;
+        padding: 10px;
+        background-color: transparent;
+        border: 0.1rem solid #d1d1d1;
+        border-radius: .4rem;
+      }
+
+      .active {
+        background-color: #63ab0e !important;
+        color: white !important;
+        border: none;
+        height: 32px;
+        padding: 5px;
+      }
+
+      .inactive {
+        background-color: indianred !important;
+        color: white !important;
+        border: none;
+        height: 32px;
+        padding: 5px;
+      }
+
+      hr {
+        border: none;
+        height: 1px;
+        color: #333;
+        background-color: #333;
+      }
+    </style>
+  </head>
+
+<body>
+<div class="main-title">
+  <h1>FRP exercises</h1>
+  <img class="logo"
+       src="https://user-images.githubusercontent.com/10064416/53419310-eb4eb080-39d9-11e9-92f0-f402f33fe4fd.jpg"/>
+</div>
+
+<zero-md src="./ejercicio.md"></zero-md>
+<br>
+<hr>
+<br>
+<h2>La resolución de ejercicios empieza aquí</h2>
+<div class="flex">
+  <label>Contador de nacimientos</label>
+  <input disabled
+         id="eventCounter"
+         value="0">
+</div>
+
+<div class="flex silence">
+  <label for="silence">Último nacimiento después de un silencio de 500ms</label>
+  <input disabled
+         id="silence"
+         name="silence">
+</div>
+
+<div class="flex grouping">
+  <label for="grouping">Nacimientos agrupados cada 2 segundos</label>
+  <div class="output"
+       id="grouping"
+       name="grouping">
+  </div>
+</div>
+
+<div class="flex silence">
+  <label for="silence">Nacimiento a cada segundo</label>
+  <input disabled
+         id="firstBirthSecond">
+</div>
+
+<div class="flex">
+  <label for="grouping">Nacimiento al hacer click</label>
+  <button id="lastEmittedEvent">Obtener nacimiento</button>
+  <input disabled
+         id="last">
+</div>
+
+<div class="flex">
+  <label for="grouping">Obtener datos cuando la condición es cierta</label>
+  <button id="byConditionButton">Cambiar condición</button>
+  <input id="conditionValue"
+         style="width: 170px"
+         class="inactive"
+         value="Condición: false">
+  <input disabled
+         id="byCondition">
+</div>
+<script src="/dist/bundle.js"></script>
+</body>
+
+</html>
